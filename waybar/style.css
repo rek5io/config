@@ -1,0 +1,47 @@
+@import "../mocha.css";
+
+* {
+    color: @text;
+    font-size: 18px;
+    padding: 4px;
+}
+
+window#waybar {
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
+}
+
+#custom-power {
+    color: @red;
+    font-weight: bold;
+}
+
+#clock {
+    color: @blue;
+    font-weight: bold;
+}
+
+#battery {
+    color: @green;
+    font-weight: bold;
+}
+
+#memory {
+    color: @lavender;
+    font-weight: bold;
+}
+
+#cpu {
+    color: @maroon;
+    font-weight: bold;
+}
+
+#backlight {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    color: @teal;
+    font-weight: bold;
+}

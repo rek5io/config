@@ -1,0 +1,57 @@
+{
+    "layer": "top",
+    "exclusive": true,
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-left": ["custom/power"],
+
+    "custom/power": {
+        "format": "[ ⏻ ]",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/power-menu.sh",
+        "on-click-right": "systemctl poweroff",
+        "on-click-middle": "systemctl reboot",
+    },
+
+    "battery": {
+        "format": "[ {icon} {capacity}% ]",
+        "format-icons": ["", "", "", "", ""],
+    },
+
+    "clock": {
+        "format": "[ {:%H:%M} ]",
+        "format-alt": "[ {:%a, %d. %b  %H:%M} ]",
+        "tooltip": false,
+    },
+
+    "cpu": {
+        "format": "[ {usage}% ]",
+        "interval": 1,
+    },
+
+    "memory": {
+        "format": "[   {}% ]",
+        "interval": 1,
+    },
+
+    "backlight": {
+        "format": "[ {icon} {percent}% ]",
+        "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"],
+    },
+
+    "custom/volume": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/volume.sh",
+        "return-type": "json",
+        "interval": 1,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    },
+
+    "pulseaudio": {
+        "format": "[ {icon} {volume}% ]",
+        "format-muted": " muted",
+        "format-icons": {
+            "default": ["", ""],
+            "muted": [""],
+        },
+    },
+}
