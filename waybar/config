@@ -8,13 +8,13 @@
         "format": "[ ⏻ ]",
         "tooltip": false,
         "on-click": "~/.config/waybar/scripts/power-menu.sh",
-        "on-click-right": "systemctl poweroff",
-        "on-click-middle": "systemctl reboot",
     },
 
     "battery": {
         "format": "[ {icon} {capacity}% ]",
         "format-icons": ["", "", "", "", ""],
+        "format-charging": "[ {icon} {capacity}% 󱐥 ]",
+        "interval": 1
     },
 
     "clock": {
