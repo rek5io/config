@@ -1,8 +1,18 @@
 {
     "layer": "top",
     "exclusive": true,
-    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "clock"],
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "network", "clock"],
     "modules-left": ["custom/power"],
+
+    "network": {
+	    "interface": "wlp1s0",
+	    "format": "{ifname}",
+	    "format-wifi": "[ {essid}  ]",
+	    "format-ethernet": "{ifname} ",
+	    "format-disconnected": "",
+	    "max-length": 50,
+        "on-click": "~/.config/waybar/scripts/nmtui.sh"
+    },
 
     "custom/power": {
         "format": "[ ⏻ ]",
@@ -38,14 +48,6 @@
         "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"],
     },
 
-    "custom/volume": {
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/volume.sh",
-        "return-type": "json",
-        "interval": 1,
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    },
-
     "pulseaudio": {
         "format": "[ {icon} {volume}% ]",
         "format-muted": " muted",
@@ -53,5 +55,7 @@
             "default": ["", ""],
             "muted": [""],
         },
+
+        "on-click": "~/.config/waybar/scripts/audio.sh",
     },
 }
