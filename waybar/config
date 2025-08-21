@@ -8,8 +8,8 @@
 	    "interface": "wlp1s0",
 	    "format": "{ifname}",
 	    "format-wifi": "  {essid}   ",
-	    "format-ethernet": "{ifname} ",
-	    "format-disconnected": "[  ]",
+	    "format-ethernet": "  {ifname}   ",
+	    "format-disconnected": "    ",
 	    "max-length": 50,
         "on-click": "~/.config/waybar/scripts/nmtui.sh"
     },
@@ -23,7 +23,7 @@
     "battery": {
         "format": "  {icon} {capacity}%  ",
         "format-icons": ["", "", "", "", ""],
-        "format-charging": "  {icon} {capacity}% 󱐥  ",
+        "format-charging": "  {icon} {capacity}% 󰚥  ",
         "interval": 1
     },
 
