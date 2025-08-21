@@ -76,7 +76,6 @@ window {
   color: @lavender;
 }
 
-/* Selected Entry */
 #entry:selected {
   border: 0.11em solid @lavender;
 }

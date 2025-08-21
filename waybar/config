@@ -7,50 +7,50 @@
     "network": {
 	    "interface": "wlp1s0",
 	    "format": "{ifname}",
-	    "format-wifi": "[ {essid}  ]",
+	    "format-wifi": "  {essid}   ",
 	    "format-ethernet": "{ifname} ",
-	    "format-disconnected": "",
+	    "format-disconnected": "[  ]",
 	    "max-length": 50,
         "on-click": "~/.config/waybar/scripts/nmtui.sh"
     },
 
     "custom/power": {
-        "format": "[ ⏻ ]",
+        "format": "  ⏻  ",
         "tooltip": false,
         "on-click": "~/.config/waybar/scripts/power-menu.sh",
     },
 
     "battery": {
-        "format": "[ {icon} {capacity}% ]",
+        "format": "  {icon} {capacity}%  ",
         "format-icons": ["", "", "", "", ""],
-        "format-charging": "[ {icon} {capacity}% 󱐥 ]",
+        "format-charging": "  {icon} {capacity}% 󱐥  ",
         "interval": 1
     },
 
     "clock": {
-        "format": "[ {:%H:%M} ]",
-        "format-alt": "[ {:%a, %d. %b  %H:%M} ]",
+        "format": "  {:%H:%M}  ",
+        "format-alt": "  {:%a, %d. %b  %H:%M}  ",
         "tooltip": false,
     },
 
     "cpu": {
-        "format": "[ {usage}% ]",
+        "format": "   {usage}%  ",
         "interval": 1,
     },
 
     "memory": {
-        "format": "[   {}% ]",
+        "format": "    {}%  ",
         "interval": 1,
     },
 
     "backlight": {
-        "format": "[ {icon} {percent}% ]",
+        "format": "  {icon} {percent}%  ",
         "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"],
     },
 
     "pulseaudio": {
-        "format": "[ {icon} {volume}% ]",
-        "format-muted": " muted",
+        "format": "  {icon} {volume}%  ",
+        "format-muted": "   muted  ",
         "format-icons": {
             "default": ["", ""],
             "muted": [""],

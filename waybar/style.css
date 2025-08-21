@@ -1,52 +1,57 @@
 @import "../mocha.css";
 
 * {
-    color: @text;
+    color: @base;
+    font-weight: bold;
+    border-radius: 8px;
     font-size: 18px;
     padding: 4px;
-}
-
-window#waybar {
-    background-color: shade(@base, 0.9);
-    border: 2px solid alpha(@crust, 0.3);
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #network {
-    color: @lavender;
-    font-weight: bold;
+    background-color: @lavender;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #custom-power {
-    color: @red;
-    font-weight: bold;
+    background-color: @red;
+    margin-right: 4px;
 }
 
 #clock {
-    color: @blue;
-    font-weight: bold;
+    background-color: @blue;
+    margin-left: 4px;
 }
 
 #battery {
-    color: @green;
-    font-weight: bold;
+    background-color: @green;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #memory {
-    color: @lavender;
-    font-weight: bold;
+    background-color: @lavender;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #cpu {
-    color: @maroon;
-    font-weight: bold;
+    background-color: @maroon;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #backlight {
-    color: @yellow;
-    font-weight: bold;
+    background-color: @yellow;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 #pulseaudio {
-    color: @teal;
-    font-weight: bold;
+    background-color: @teal;
+    margin-left: 4px;
+    margin-right: 4px;
 }
