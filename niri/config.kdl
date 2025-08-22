@@ -84,6 +84,7 @@ output "eDP-1" {
     position x=1280 y=0
 
     background-color "#f2cdcd"
+    //background-color "#eba0ac"
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -184,6 +185,10 @@ layout {
 
 }
 
+overview {
+    backdrop-color "#1e1e2e"
+}
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -223,6 +228,9 @@ window-rule {
     clip-to-geometry true
 }
 
+workspace "1-main"
+workspace "2"
+workspace "3"
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name

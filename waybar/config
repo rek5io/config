@@ -15,7 +15,7 @@
 	    "format-icons": {
 		    "browser": "",
 		    "chat": "<b></b>",
-		    "active": "",
+		    "active": "󰄰",
 		    "default": "",
 	    }
     },
@@ -49,6 +49,7 @@
     "battery": {
         "format": "  {icon} {capacity}%  ",
         "format-icons": ["", "", "", "", ""],
+        "format-plugged": "  {icon} {capacity}% 󰚥  ",
         "format-charging": "  {icon} {capacity}% 󰚥  ",
         "interval": 1
     },
