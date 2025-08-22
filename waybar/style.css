@@ -10,10 +10,28 @@
     margin-right: 0px;
 }
 
+tooltip {
+    background-color: @base;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @text;
+}
+
 #network {
+    background-color: @mauve;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#workspaces {
     background-color: @lavender;
     margin-left: 4px;
     margin-right: 4px;
+    padding: 0px 0px;
+    min-width: 0;
+    min-height: 0;
 }
 
 #custom-power {

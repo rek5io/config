@@ -2,17 +2,7 @@
     "layer": "top",
     "exclusive": true,
     "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "network", "clock"],
-    "modules-left": ["custom/power"],
-
-    "network": {
-	    "interface": "wlp1s0",
-	    "format": "{ifname}",
-	    "format-wifi": "  {essid}   ",
-	    "format-ethernet": "  {ifname}   ",
-	    "format-disconnected": "    ",
-	    "max-length": 50,
-        "on-click": "~/.config/waybar/scripts/nmtui.sh"
-    },
+    "modules-left": ["custom/power", "niri/workspaces"],
 
     "custom/power": {
         "format": "  ⏻  ",
@@ -20,17 +10,14 @@
         "on-click": "~/.config/waybar/scripts/power-menu.sh",
     },
 
-    "battery": {
-        "format": "  {icon} {capacity}%  ",
-        "format-icons": ["", "", "", "", ""],
-        "format-charging": "  {icon} {capacity}% 󰚥  ",
-        "interval": 1
-    },
-
-    "clock": {
-        "format": "  {:%H:%M}  ",
-        "format-alt": "  {:%a, %d. %b  %H:%M}  ",
-        "tooltip": false,
+    "niri/workspaces": {
+	    "format": "{icon}",
+	    "format-icons": {
+		    "browser": "",
+		    "chat": "<b></b>",
+		    "active": "",
+		    "default": "",
+	    }
     },
 
     "cpu": {
@@ -39,7 +26,7 @@
     },
 
     "memory": {
-        "format": "    {}%  ",
+        "format": "    {used:0.1f}G/{total:0.1f}G  ",
         "interval": 1,
     },
 
@@ -55,7 +42,32 @@
             "default": ["", ""],
             "muted": [""],
         },
-
+        "tooltip-format": "{desc} ({volume}%)",
         "on-click": "~/.config/waybar/scripts/audio.sh",
+    },
+
+    "battery": {
+        "format": "  {icon} {capacity}%  ",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "  {icon} {capacity}% 󰚥  ",
+        "interval": 1
+    },
+
+    "network": {
+	    "interface": "wlp1s0",
+	    "format": "{ifname}",
+	    "format-wifi": "  {essid}    ({signalStrength}%)  ",
+	    "format-ethernet": "  {ifname}   ",
+	    "format-disconnected": "  no connection  ",
+	    "max-length": 50,
+        "on-click": "~/.config/waybar/scripts/nmtui.sh",
+        "interval": 1
+
+    },
+
+    "clock": {
+        "format": "  {:%H:%M}  ",
+        "format-alt": "  {:%a, %d. %b  %H:%M}  ",
+        "tooltip-format": "<tt>{calendar}</tt>"
     },
 }
