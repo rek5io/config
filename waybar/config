@@ -1,0 +1,73 @@
+{
+    "layer": "top",
+    "exclusive": true,
+    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "network", "clock"],
+    "modules-left": ["custom/power", "niri/workspaces"],
+
+    "custom/power": {
+        "format": "  ⏻  ",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    },
+
+    "niri/workspaces": {
+	    "format": "{icon}",
+	    "format-icons": {
+		    "browser": "",
+		    "chat": "<b></b>",
+		    "active": "󰄰",
+		    "default": "",
+	    }
+    },
+
+    "cpu": {
+        "format": "   {usage}%  ",
+        "interval": 1,
+    },
+
+    "memory": {
+        "format": "    {used:0.1f}G/{total:0.1f}G  ",
+        "interval": 1,
+    },
+
+    "backlight": {
+        "format": "  {icon} {percent}%  ",
+        "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖"],
+    },
+
+    "pulseaudio": {
+        "format": "  {icon} {volume}%  ",
+        "format-muted": "   muted  ",
+        "format-icons": {
+            "default": ["", ""],
+            "muted": [""],
+        },
+        "tooltip-format": "{desc} ({volume}%)",
+        "on-click": "~/.config/waybar/scripts/audio.sh",
+    },
+
+    "battery": {
+        "format": "  {icon} {capacity}%  ",
+        "format-icons": ["", "", "", "", ""],
+        "format-plugged": "  {icon} {capacity}% 󰚥  ",
+        "format-charging": "  {icon} {capacity}% 󰚥  ",
+        "interval": 1
+    },
+
+    "network": {
+	    "format": "{ifname}",
+	    "format-wifi": "  {essid}    ({signalStrength}%)  ",
+	    "format-ethernet": "  {ifname}   ",
+	    "format-disconnected": "  no connection  ",
+	    "max-length": 50,
+        "on-click": "~/.config/waybar/scripts/nmtui.sh",
+        "interval": 1
+
+    },
+
+    "clock": {
+        "format": "  {:%H:%M}  ",
+        "format-alt": "  {:%a, %d. %b  %H:%M}  ",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+}

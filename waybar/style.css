@@ -1,0 +1,73 @@
+@import "../mocha.css";
+
+* {
+    color: @base;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 18px;
+    padding: 3px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+tooltip {
+    background-color: @base;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+#network {
+    background-color: @mauve;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#workspaces {
+    background-color: @lavender;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 0px 0px;
+}
+
+#custom-power {
+    background-color: @red;
+    margin-right: 4px;
+}
+
+#clock {
+    background-color: @blue;
+    margin-left: 4px;
+}
+
+#battery {
+    background-color: @green;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#memory {
+    background-color: @lavender;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#cpu {
+    background-color: @maroon;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#backlight {
+    background-color: @yellow;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#pulseaudio {
+    background-color: @teal;
+    margin-left: 4px;
+    margin-right: 4px;
+}
