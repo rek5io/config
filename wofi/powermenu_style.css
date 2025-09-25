@@ -1,53 +1,45 @@
 @import ".config/mocha.css";
 
 * {
-  font-family: 'Ubutnu Nerd Font';
-  font-size: 17px;
+  font-family: "UbuntuMono Nerd Font";
+  font-size: 20px;
 }
 
-/* Window */
 window {
-  margin: 0px;
-  padding: 10px;
   border: 0.16em solid @lavender;
   border-radius: 0.5em;
   background-color: @mantle;
 }
 
-/* Inner Box */
 #inner-box {
-  margin: 5px;
-  padding: 10px;
+  margin-left: 25px;
   border: none;
   background-color: @mantle;
 }
 
-/* Outer Box */
 #outer-box {
   margin: 5px;
-  padding: 10px;
   border: none;
   background-color: @mantle;
 }
 
-/* Scroll */
 #scroll {
-  margin: 0px;
-  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   border: none;
   background-color: @mantle;
+  align-items: center;
 }
 
 #input {
-    all: unset;
-    min-height: 0px;
-    max-height: 0px;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
+  all: unset;
+  min-height: 0px;
+  max-height: 0px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
 }
 
-/* Text */
 #text {
   margin: 5px;
   border: none;
@@ -55,21 +47,16 @@ window {
 }
 
 #entry {
+  margin-right: 25px;
   background-color: @mantle;
 }
 
-#entry arrow {
-  border: none;
-  color: @lavender;
-}
-
-/* Selected Entry */
 #entry:selected {
   border: 0.11em solid @lavender;
 }
 
 #entry:selected #text {
-  color: @mauve;
+  color: @green;
 }
 
 #entry:drop(active) {
