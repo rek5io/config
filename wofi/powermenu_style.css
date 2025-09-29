@@ -1,34 +1,8 @@
 @import ".config/mocha.css";
-
-* {
-  font-family: "UbuntuMono Nerd Font";
-  font-size: 20px;
-}
-
-window {
-  border: 0.16em solid @lavender;
-  border-radius: 0.5em;
-  background-color: @mantle;
-}
-
-#inner-box {
-  margin-left: 25px;
-  border: none;
-  background-color: @mantle;
-}
-
-#outer-box {
-  margin: 5px;
-  border: none;
-  background-color: @mantle;
-}
+@import ".config/wofi/common_style.css";
 
 #scroll {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border: none;
-  background-color: @mantle;
-  align-items: center;
+  margin-top: 0px;
 }
 
 #input {
@@ -38,27 +12,4 @@ window {
   margin: 0;
   padding: 0;
   opacity: 0;
-}
-
-#text {
-  margin: 5px;
-  border: none;
-  color: @text;
-}
-
-#entry {
-  margin-right: 25px;
-  background-color: @mantle;
-}
-
-#entry:selected {
-  border: 0.11em solid @lavender;
-}
-
-#entry:selected #text {
-  color: @green;
-}
-
-#entry:drop(active) {
-  background-color: @lavender!important;
 }

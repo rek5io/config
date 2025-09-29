@@ -1,6 +1,6 @@
 show=drun
-width=800
-height=500
+width=850
+height=550
 always_parse_args=true
 show_all=true
 term=alacritty
