@@ -1,8 +1,9 @@
 {
     "layer": "top",
     "exclusive": true,
-    "modules-right": ["cpu", "memory", "backlight", "pulseaudio", "battery", "network", "clock"],
-    "modules-left": ["custom/power", "niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "backlight", "pulseaudio", "battery"],
+    "modules-left": ["custom/power", "niri/workspaces", "niri/window"],
 
     "custom/power": {
         "format": "  ⏻  ",
@@ -18,6 +19,11 @@
 		    "active": "󰄰",
 		    "default": "",
 	    }
+    },
+
+    "niri/window": {
+        "format": "  {}  ",
+        "max-length": 25,
     },
 
     "cpu": {
@@ -56,7 +62,7 @@
 
     "network": {
 	    "format": "{ifname}",
-	    "format-wifi": "  {essid}    ({signalStrength}%)  ",
+	    "format-wifi": "  {essid}    {bandwidthUpBytes} {bandwidthDownBytes}  ",
 	    "format-ethernet": "  {ifname}   ",
 	    "format-disconnected": "  no connection  ",
 	    "max-length": 50,
@@ -66,8 +72,7 @@
     },
 
     "clock": {
-        "format": "  {:%H:%M}  ",
-        "format-alt": "  {:%a, %d. %b  %H:%M}  ",
+        "format": "  {:%H:%M   %a %d %b %Y}  ",
         "tooltip-format": "<tt>{calendar}</tt>"
     },
 }

@@ -72,6 +72,13 @@ local rk_config = function()
     vim.api.nvim_set_hl(0, "@constant.builtin",    { fg = colors.mauve                          })
     vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = colors.blue                           })
     vim.api.nvim_set_hl(0, "@boolean",             { fg = colors.red                            })
+    vim.api.nvim_set_hl(0, "StatusLine",           { fg = colors.lavender, bg = colors.surface0 })
+    vim.api.nvim_set_hl(0, "StatusLineNC",         { fg = colors.surface0, bg = colors.surface0 })
+    vim.api.nvim_set_hl(0, "StatusLineLeft",       { fg = colors.surface0, bg = colors.blue     })
+    vim.api.nvim_set_hl(0, "StatusLineLeftEnd",    { fg = colors.surface0, bg = colors.lavender })
+    vim.api.nvim_set_hl(0, "StatusLineDiag",       { fg = colors.surface0, bg = colors.lavender })
+    vim.api.nvim_set_hl(0, "StatusLineRight",      { fg = colors.surface0, bg = colors.green    })
+    vim.api.nvim_set_hl(0, "StatusLineRightEnd",   { fg = colors.green, bg = colors.lavender    })
 
 
     -- rust
@@ -86,51 +93,82 @@ local rk_config = function()
         end,
     })
 
+    -- kdl 
+    vim.filetype.add({
+        extension = {
+            kdl = "kdl",
+        },
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "kdl",
+      callback = function()
+        vim.cmd([[
+            syntax clear
+            syntax enable
+            syntax match kdlComment "//.*"
+            syntax region kdlString start=/"/ skip=/\\"/ end=/"/
+            syntax match kdlNumber "\v[-+]?\d+(\.\d+)?"
+            syntax keyword kdlBoolean true false
+            syntax match kdlPunct "[{}\[\]()=,]"
+            highlight default link kdlComment Comment
+            highlight default link kdlString String
+            highlight default link kdlNumber Number
+            highlight default link kdlBoolean Boolean
+            highlight default link kdlPunct Delimiter
+            highlight kdlPunct guifg=#89b4fa
+        ]])
+      end,
+    })
+
 
     -- custom commands
-    local tree_buf = nil
-    local tree_win = nil
-
     vim.api.nvim_create_user_command("Rcfg", function()
-        if tree_win and vim.api.nvim_win_is_valid(tree_win) then
-            vim.api.nvim_win_close(tree_win, true)
-            tree_buf = nil
-            tree_win = nil
-        end
-
         vim.cmd("luafile ~/.config/nvim/init.lua")
         print("🔁 Config reloaded!")
     end, {})
 
-    vim.api.nvim_create_user_command("Tree", function()
-        if tree_win and vim.api.nvim_win_is_valid(tree_win) then
-            vim.api.nvim_win_close(tree_win, true)
-            tree_buf = nil
-            tree_win = nil
-            return
+
+    -- powerline
+    local powerline = function()
+        local function fileinfo()
+          local fname = vim.fn.expand('%:t')
+          if fname == '' then fname = '>No Name<' end
+          local modified = vim.bo.modified and ' ● ' or ''
+          return fname .. modified
         end
 
-        local output = vim.fn.systemlist("tree -L 2")
-        output = vim.list_slice(output, 1, #output - 2)
+        local function diagnostics()
+          local errors = vim.diagnostic.get(0, {severity = vim.diagnostic.severity.ERROR})
+          local warns  = vim.diagnostic.get(0, {severity = vim.diagnostic.severity.WARN})
+          local e_count = #errors
+          local w_count = #warns
+          local out = ''
+          if e_count > 0 then out = out .. ' E:' .. e_count end
+          if w_count > 0 then out = out .. ' W:' .. w_count end
+          return out
+        end
 
-        tree_buf = vim.api.nvim_create_buf(false, true)
-        vim.api.nvim_buf_set_lines(tree_buf, 0, -1, false, output)
+        function set_powerline()
+            local sep_left  = ''
+            local sep_right = ''
+            local left = '%#StatusLineLeftEnd#' .. sep_left
+            local mid = '%#StatusLineDiag# ' .. diagnostics() .. ' '
+            local right = '%=' .. '%#StatusLineRightEnd#' .. sep_right .. '%#StatusLineRight# [' .. fileinfo() .. '] %l:%c ' .. sep_right
+            vim.opt.statusline = left .. mid .. right
+        end
 
-        vim.cmd("vsplit")
-        vim.cmd("vertical resize 32")
-        tree_win = vim.api.nvim_get_current_win()
-        vim.api.nvim_win_set_buf(tree_win, tree_buf)
-        vim.bo[tree_buf].buftype = "nofile"
-        vim.bo[tree_buf].bufhidden = "wipe"
-        vim.bo[tree_buf].swapfile = false
-        vim.bo[tree_buf].modifiable = false
-        vim.bo[tree_buf].readonly = true
+        vim.api.nvim_create_autocmd(
+            { "BufEnter", "WinEnter", "InsertLeave", "TextChanged", "TextChangedI", "BufWritePost" },
+            { callback = set_powerline }
+        )
 
-        vim.api.nvim_win_set_option(tree_win, "number", false)
-        vim.api.nvim_win_set_option(tree_win, "relativenumber", false)
-    end, {})
+        set_powerline()
 
-    vim.api.nvim_set_keymap('n', 't', ':Tree<CR>', { noremap = true, silent = true })
+    end
+
+   powerline()
+
 end
 
 rk_config()

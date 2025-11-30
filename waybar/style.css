@@ -32,6 +32,13 @@ tooltip label {
     padding: 0px 0px;
 }
 
+#window {
+    background-color: @green;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 0px 0px;
+}
+
 #custom-power {
     background-color: @red;
     margin-right: 4px;
