@@ -1,6 +1,6 @@
 show=drun
-width=850
-height=550
+width=620
+height=680
 always_parse_args=true
 show_all=true
 term=alacritty
@@ -8,6 +8,6 @@ hide_scroll=true
 print_command=true
 insensitive=true
 prompt=
-columns=2
+columns=1
 allow_images=true
 no_actions=true

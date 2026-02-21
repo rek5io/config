@@ -10,7 +10,7 @@
   margin-left: 20px;
   margin-right: 20px;
   padding: 7px;
-  border: 0.16em solid @red;
+  border: 0.12em solid @red;
   box-shadow: none;
   border-radius: 0.5em;
   color: @text;
@@ -23,7 +23,7 @@
 }
 
 #input:focus {
-  border: 0.16em solid @green;
+  border: 0.12em solid @green;
 }
 
 #input:focus image {

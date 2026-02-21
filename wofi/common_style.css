@@ -1,12 +1,12 @@
 @import ".config/mocha.css";
 
 * {
-  font-family: "UbuntuMono Nerd Font";
+  font-family: "Ubuntu Nerd Font";
   font-size: 20px;
 }
 
 window {
-  border: 0.16em solid @lavender;
+  border: 0.12em solid @lavender;
   border-radius: 0.5em;
   background-color: @mantle;
 }
@@ -29,7 +29,7 @@ window {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  border: 0.16em solid @blue;
+  border: 0.12em solid @blue;
   border-radius: 0.5em;
   background-color: @mantle;
 }

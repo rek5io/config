@@ -26,6 +26,10 @@ output "eDP-1" {
     }
 }
 
+xwayland-satellite {
+    path "."
+}
+
 layout {
     background-color "#f2cdcd"
 
@@ -79,6 +83,16 @@ spawn-at-startup "waybar"
 screenshot-path "~/Pictures/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png"
 
 animations {
+    window-open {
+        duration-ms 200
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 200
+        curve "ease-out-expo"
+    }
+
     window-resize {
         spring damping-ratio=0.55 stiffness=500 epsilon=0.0001
     }
