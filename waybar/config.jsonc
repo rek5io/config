@@ -3,12 +3,18 @@
     "exclusive": true,
     "modules-center": ["clock"],
     "modules-right": ["network", "cpu", "memory", "backlight", "pulseaudio", "battery"],
-    "modules-left": ["custom/power", "niri/workspaces", "niri/window"],
+    "modules-left": ["custom/power", "custom/appsmenu", "niri/workspaces", "niri/window"],
 
     "custom/power": {
         "format": "  ⏻  ",
         "tooltip": false,
         "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    },
+
+    "custom/appsmenu": {
+        "format": "    ",
+        "tooltip": false,
+        "on-click": "wofi --show=drun",
     },
 
     "niri/workspaces": {
@@ -65,7 +71,7 @@
 	    "format-wifi": "  {essid}    {bandwidthUpBytes} {bandwidthDownBytes}  ",
 	    "format-ethernet": "  {ifname}   ",
 	    "format-disconnected": "  no connection  ",
-	    "max-length": 50,
+	    "max-length": 25,
         "on-click": "~/.config/waybar/scripts/nmtui.sh",
         "interval": 1
     },

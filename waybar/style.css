@@ -44,6 +44,12 @@ tooltip label {
     margin-right: 4px;
 }
 
+#custom-appsmenu {
+    background-color: @mauve;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
 #clock {
     background-color: @blue;
     margin-left: 4px;
