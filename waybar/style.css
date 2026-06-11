@@ -45,6 +45,10 @@ tooltip label {
     background-color: @green;
 }
 
+window#waybar.empty #window {
+    opacity: 0;
+}
+
 #custom-power {
     background-color: @red;
     margin-left: 8px;
