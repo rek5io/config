@@ -1,18 +1,23 @@
 @import "../mocha.css";
 
-* {
+window#waybar {
+    min-height: 80px;
+}
+
+.module {
     color: @base;
     font-weight: bold;
     border-radius: 8px;
     font-size: 18px;
-    padding: 3px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 4px;
+    padding: 6px 4px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 tooltip {
     background-color: @base;
-    border-radius: 8px;
 }
 
 tooltip label {
@@ -21,66 +26,55 @@ tooltip label {
 
 #network {
     background-color: @mauve;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 #workspaces {
     background-color: @lavender;
-    margin-left: 4px;
-    margin-right: 4px;
     padding: 0px 0px;
+}
+
+#workspaces button {
+    color: @base;
+    background: transparent;
+    padding: 2px 2px;
+    margin: 0px 0px;
+    border-radius: 6px;
 }
 
 #window {
     background-color: @green;
-    margin-left: 4px;
-    margin-right: 4px;
-    padding: 0px 0px;
 }
 
 #custom-power {
     background-color: @red;
-    margin-right: 4px;
+    margin-left: 8px;
 }
 
 #custom-appsmenu {
     background-color: @mauve;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 #clock {
     background-color: @blue;
-    margin-left: 4px;
 }
 
 #battery {
     background-color: @green;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-right: 8px;
 }
 
 #memory {
     background-color: @lavender;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 #cpu {
     background-color: @maroon;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 #backlight {
     background-color: @yellow;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 #pulseaudio {
     background-color: @teal;
-    margin-left: 4px;
-    margin-right: 4px;
 }
